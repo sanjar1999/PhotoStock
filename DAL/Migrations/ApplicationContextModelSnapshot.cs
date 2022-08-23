@@ -10,143 +10,143 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL.Migrations
 {
-    [DbContext(typeof(ApplicationContext))]
+    [DbContext( typeof( ApplicationContext ) )]
     partial class ApplicationContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildModel( ModelBuilder modelBuilder )
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.8")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+                .HasAnnotation( "ProductVersion", "6.0.8" )
+                .HasAnnotation( "Relational:MaxIdentifierLength", 128 );
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+            SqlServerModelBuilderExtensions.UseIdentityColumns( modelBuilder, 1L, 1 );
 
-            modelBuilder.Entity("DAL.Models.Author", b =>
+            modelBuilder.Entity( "DAL.Models.Author", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>( "Id" )
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType( "int" );
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn( b.Property<int>( "Id" ), 1L, 1 );
 
-                    b.Property<DateTime>("DateOfBirth")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime>( "DateOfBirth" )
+                        .HasColumnType( "datetime2" );
 
-                    b.Property<DateTime>("DateOfRegistration")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime>( "DateOfRegistration" )
+                        .HasColumnType( "datetime2" );
 
-                    b.Property<string>("LastName")
+                    b.Property<string>( "LastName" )
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType( "nvarchar(max)" );
 
-                    b.Property<string>("Name")
+                    b.Property<string>( "Name" )
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType( "nvarchar(max)" );
 
-                    b.Property<string>("NickName")
+                    b.Property<string>( "NickName" )
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType( "nvarchar(max)" );
 
-                    b.HasKey("Id");
+                    b.HasKey( "Id" );
 
-                    b.ToTable("Authors");
-                });
+                    b.ToTable( "Authors" );
+                } );
 
-            modelBuilder.Entity("DAL.Models.Photo", b =>
+            modelBuilder.Entity( "DAL.Models.Photo", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>( "Id" )
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType( "int" );
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn( b.Property<int>( "Id" ), 1L, 1 );
 
-                    b.Property<int>("AuthorId")
-                        .HasColumnType("int");
+                    b.Property<int>( "AuthorId" )
+                        .HasColumnType( "int" );
 
-                    b.Property<int>("Cost")
-                        .HasColumnType("int");
+                    b.Property<int>( "Cost" )
+                        .HasColumnType( "int" );
 
-                    b.Property<DateTime>("DateOfCreation")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime>( "DateOfCreation" )
+                        .HasColumnType( "datetime2" );
 
-                    b.Property<string>("Link")
+                    b.Property<string>( "Link" )
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType( "nvarchar(max)" );
 
-                    b.Property<string>("Name")
+                    b.Property<string>( "Name" )
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType( "nvarchar(max)" );
 
-                    b.Property<int>("NumberOfSales")
-                        .HasColumnType("int");
+                    b.Property<int>( "NumberOfSales" )
+                        .HasColumnType( "int" );
 
-                    b.Property<int>("OriginalSize")
-                        .HasColumnType("int");
+                    b.Property<int>( "OriginalSize" )
+                        .HasColumnType( "int" );
 
-                    b.HasKey("Id");
+                    b.HasKey( "Id" );
 
-                    b.HasIndex("AuthorId");
+                    b.HasIndex( "AuthorId" );
 
-                    b.ToTable("Photos");
-                });
+                    b.ToTable( "Photos" );
+                } );
 
-            modelBuilder.Entity("DAL.Models.Text", b =>
+            modelBuilder.Entity( "DAL.Models.Text", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>( "Id" )
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType( "int" );
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn( b.Property<int>( "Id" ), 1L, 1 );
 
-                    b.Property<int>("AuthorId")
-                        .HasColumnType("int");
+                    b.Property<int>( "AuthorId" )
+                        .HasColumnType( "int" );
 
-                    b.Property<int>("Cost")
-                        .HasColumnType("int");
+                    b.Property<int>( "Cost" )
+                        .HasColumnType( "int" );
 
-                    b.Property<DateTime>("DateOfCreation")
-                        .HasColumnType("datetime2");
+                    b.Property<DateTime>( "DateOfCreation" )
+                        .HasColumnType( "datetime2" );
 
-                    b.Property<string>("Name")
+                    b.Property<string>( "Name" )
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType( "nvarchar(max)" );
 
-                    b.Property<int>("NumberOfSales")
-                        .HasColumnType("int");
+                    b.Property<int>( "NumberOfSales" )
+                        .HasColumnType( "int" );
 
-                    b.Property<string>("TextOfText")
+                    b.Property<string>( "TextOfText" )
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType( "nvarchar(max)" );
 
-                    b.HasKey("Id");
+                    b.HasKey( "Id" );
 
-                    b.HasIndex("AuthorId");
+                    b.HasIndex( "AuthorId" );
 
-                    b.ToTable("Texts");
-                });
+                    b.ToTable( "Texts" );
+                } );
 
-            modelBuilder.Entity("DAL.Models.Photo", b =>
+            modelBuilder.Entity( "DAL.Models.Photo", b =>
                 {
-                    b.HasOne("DAL.Models.Author", "Author")
+                    b.HasOne( "DAL.Models.Author", "Author" )
                         .WithMany()
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey( "AuthorId" )
+                        .OnDelete( DeleteBehavior.Cascade )
                         .IsRequired();
 
-                    b.Navigation("Author");
-                });
+                    b.Navigation( "Author" );
+                } );
 
-            modelBuilder.Entity("DAL.Models.Text", b =>
+            modelBuilder.Entity( "DAL.Models.Text", b =>
                 {
-                    b.HasOne("DAL.Models.Author", "Author")
+                    b.HasOne( "DAL.Models.Author", "Author" )
                         .WithMany()
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey( "AuthorId" )
+                        .OnDelete( DeleteBehavior.Cascade )
                         .IsRequired();
 
-                    b.Navigation("Author");
-                });
+                    b.Navigation( "Author" );
+                } );
 #pragma warning restore 612, 618
         }
     }

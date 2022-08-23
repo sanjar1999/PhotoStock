@@ -28,9 +28,9 @@ namespace DTOs.Services
 
                 return listOfAuthors;
             }
-            catch ( Exception e)
+            catch ( Exception e )
             {
-                throw new ArgumentException(nameof(e));
+                throw new ArgumentException( nameof( e ) );
             }
         }
     }

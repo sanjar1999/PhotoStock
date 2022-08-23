@@ -14,13 +14,13 @@ namespace DTOs.Services
         {
             _db = applicationContext;
         }
-        
+
         public async Task<PhotoDTO> GetPhotoById( int id )
         {
             try
             {
                 var dbData = await _db.Photos
-                    .Include(x => x.Author)
+                    .Include( x => x.Author )
                     .FirstOrDefaultAsync( x => x.Id == id );
 
                 if ( dbData == null )
@@ -74,9 +74,9 @@ namespace DTOs.Services
 
                 return listOfPhotos;
             }
-            catch ( Exception e)
+            catch ( Exception e )
             {
-                throw new ArgumentException(nameof(e));
+                throw new ArgumentException( nameof( e ) );
             }
         }
 
@@ -84,7 +84,7 @@ namespace DTOs.Services
         {
             try
             {
-                var listOfPhotos =  await _db.Photos.Select( x => new PhotoDTO
+                var listOfPhotos = await _db.Photos.Select( x => new PhotoDTO
                 {
                     Id = x.Id,
                     Name = x.Name,
@@ -114,7 +114,7 @@ namespace DTOs.Services
 
                 if ( photoUpdate == null )
                 {
-                    throw new ArgumentException($"Photo with '{photoDto.Id}' id was not Found");
+                    throw new ArgumentException( $"Photo with '{photoDto.Id}' id was not Found" );
                 }
 
                 photoUpdate.Name = photoDto.Name;
@@ -129,7 +129,7 @@ namespace DTOs.Services
             }
             catch ( Exception e )
             {
-                throw new ArgumentException( nameof(e) );
+                throw new ArgumentException( nameof( e ) );
             }
         }
     }

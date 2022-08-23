@@ -6,7 +6,7 @@ namespace DAL.Migrations
 {
     public partial class FillWithTestData : Migration
     {
-        protected override void Up(MigrationBuilder migrationBuilder)
+        protected override void Up( MigrationBuilder migrationBuilder )
         {
             migrationBuilder.Sql( @"
 INSERT INTO Authors(Name, LastName, NickName, DateOfBirth, DateOfRegistration) VALUES
@@ -32,7 +32,7 @@ INSERT INTO Texts(Name, NumberOfSales, Cost, DateOfCreation, TextOfText, AuthorI
 ('La Azamat', 12423, 3642, '2022-08-11', 'qw1eq', 5);" );
         }
 
-        protected override void Down(MigrationBuilder migrationBuilder)
+        protected override void Down( MigrationBuilder migrationBuilder )
         {
 
         }

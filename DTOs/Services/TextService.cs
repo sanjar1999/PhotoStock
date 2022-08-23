@@ -19,6 +19,11 @@ namespace DTOs.Services
         {
             try
             {
+                if ( text == null )
+                {
+                    throw new ArgumentNullException( nameof( text ) );
+                }
+
                 var newText = new Text()
                 {
                     Name = text.Name,
