@@ -11,22 +11,29 @@ namespace PhotoStock.Controllers
     [ApiController]
     public class TextController : ControllerBase
     {
-        private readonly ITextServices _createText;
-        public TextController( ITextServices createText )
+        private readonly ITextServices _textService;
+        public TextController( ITextServices textService )
         {
-            _createText = createText;
+            _textService = textService;
         }
         [HttpPost]
         public async Task<IActionResult> CreateText( CreateTextDTO text )
         {
-            await _createText.CreateText( text );
+            await _textService.CreateText( text );
             return Ok();
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok( await _createText.GetTexts() );
+            return Ok( await _textService.GetTextDTO() );
+        }
+
+        [HttpGet]
+        [Route("dto")]
+        public async Task<IActionResult> GetText()
+        {
+            return Ok( await _textService.GetTexts() );
         }
     }
 }

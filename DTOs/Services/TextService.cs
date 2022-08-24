@@ -43,7 +43,7 @@ namespace DTOs.Services
             }
         }
 
-        public async Task<List<GetTextsDTO>> GetTexts()
+        public async Task<List<GetTextsDTO>> GetTextDTO()
         {
             try
             {
@@ -63,9 +63,32 @@ namespace DTOs.Services
             }
             catch ( Exception e )
             {
-
                 throw new ArgumentException( nameof( e ) );
             };
+        }
+
+        public async Task<List<TextDTO>> GetTexts()
+        {
+            try
+            {
+                var list = await _db.Texts.Select( x => new TextDTO
+                {
+                    Name = x.Name,
+                    Text = x.TextOfText,
+                    DateOfCreation = x.DateOfCreation,
+                    Cost = x.Cost,
+                    NameOfAuthor = x.Author.Name,
+                    NicknameOfAuthor = x.Author.NickName,
+                    NumberOfSales = x.NumberOfSales
+                } ).ToListAsync();
+
+                return list;
+            }
+            catch ( Exception e )
+            {
+
+                throw new ArgumentException( nameof( e ) );
+            }
         }
     }
 }
