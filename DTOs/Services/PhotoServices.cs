@@ -19,6 +19,11 @@ namespace DTOs.Services
         {
             try
             {
+                if ( id == null )
+                {
+                    throw new ArgumentNullException( nameof( id ) );
+                }
+
                 var dbData = await _db.Photos
                     .Include( x => x.Author )
                     .FirstOrDefaultAsync( x => x.Id == id );
@@ -110,6 +115,11 @@ namespace DTOs.Services
         {
             try
             {
+                if ( id == null || photoDto == null )
+                {
+                    throw new ArgumentNullException( nameof( id ) );
+                }
+
                 var photoUpdate = await _db.Photos.FirstOrDefaultAsync( x => x.Id == id );
 
                 if ( photoUpdate == null )

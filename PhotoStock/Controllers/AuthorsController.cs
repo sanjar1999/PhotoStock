@@ -9,7 +9,7 @@ namespace PhotoStock.Controllers
     {
         private readonly IAuthorServices _authorServices;
 
-        public AuthorsController(IAuthorServices authorServices)
+        public AuthorsController( IAuthorServices authorServices )
         {
             _authorServices = authorServices;
         }
@@ -17,7 +17,7 @@ namespace PhotoStock.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAuthors()
         {
-            return Ok(await _authorServices.GetAuthors());
+            return Ok( await _authorServices.GetAuthors() );
         }
     }
 }

@@ -18,14 +18,14 @@ namespace PhotoStock.Controllers
         [Route( "dto" )]
         public async Task<IActionResult> GetListOfPhotos()
         {
-            return Ok(await _photoServices.GetPhotosDTO()) ;
+            return Ok( await _photoServices.GetPhotosDTO() );
         }
 
         [HttpGet]
         [Route( "{id}" )]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById( int id )
         {
-            return Ok(await _photoServices.GetPhotoById( id ));
+            return Ok( await _photoServices.GetPhotoById( id ) );
         }
 
         [HttpGet]
@@ -36,7 +36,7 @@ namespace PhotoStock.Controllers
 
         [HttpPut]
         [Route( "{id}" )]
-        public async Task<IActionResult> UpdatePhoto(int id, PhotoDTO photoDto )
+        public async Task<IActionResult> UpdatePhoto( int id, PhotoDTO photoDto )
         {
             await _photoServices.UpdatePhoto( id, photoDto );
             return Ok();

@@ -1,5 +1,4 @@
-﻿using DAL.Models;
-using DTOs.Models;
+﻿using DTOs.Models;
 using DTOs.Services;
 using Microsoft.AspNetCore.Mvc;
 #pragma warning disable
@@ -30,7 +29,7 @@ namespace PhotoStock.Controllers
         }
 
         [HttpGet]
-        [Route("dto")]
+        [Route( "dto" )]
         public async Task<IActionResult> GetText()
         {
             return Ok( await _textService.GetTexts() );

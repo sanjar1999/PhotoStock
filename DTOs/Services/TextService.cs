@@ -86,7 +86,6 @@ namespace DTOs.Services
             }
             catch ( Exception e )
             {
-
                 throw new ArgumentException( nameof( e ) );
             }
         }
